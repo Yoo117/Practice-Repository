@@ -1,0 +1,5 @@
+# 필요한 패키지들입니다.
+
+python-dotenv==1.0.1
+flask==3.0.3
+openai==1.37.1

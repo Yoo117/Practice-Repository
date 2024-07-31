@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hana</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+</head>
+<body>
+    <h1>Hana</h1>
+    <div class="chat-container">
+        <input type="text" id="userInput" class="user-input" placeholder="Enter your message..." />
+        <div id="controls">
+            <button id="sendBtn" class="button" onclick="sendMessage()">Chat</button>
+            <button id="toggleBtn" class ="button" onclick="toggleRecognition()">Voice</button>
+        </div>
+        <div>안녕하세요, 일본어 회화 도우미 Hana입니다. 회화 실습을 시작해볼까요?</div>
+        <div class="chat-log" id="chatLog"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script> 
+</body>
+</html>
