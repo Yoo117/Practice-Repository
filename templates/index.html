@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hana</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+    <link rel="stylesheet" href="../static/style.css"> 
 </head>
 <body>
     <header>
         <h1>Hana</h1>
     </header>
+    <article id="noticeButton" class="fixed-button">Caution</article>
+    <article id="noticeContent" class="notice-content">
+        1. 음성인식은 Chrome과 Edge 브라우저에서만 지원됩니다.<br>
+        2. 음성인식 기능을 사용할 땐 일본어로만 말씀해주세요.
+    </article>
     <main class="chat-container">
-        <section>
+        <section id="Explain">
             <p>안녕하세요, 일본어 회화 도우미 Hana입니다. 회화 실습을 시작해볼까요?</p>
         </section>
         <input type="text" id="userInput" class="user-input" placeholder="Enter your message..." />
-        <div id="controls">
+        <section id="controls">
             <button id="sendBtn" class="button" onclick="sendMessage()">Chat</button>
             <button id="toggleBtn" class ="button" onclick="toggleRecognition()">Voice</button>
-        </div>
-        <div class="chat-log" id="chatLog"></div>
+        </section>
+        <section class="chat-log" id="chatLog"></section>
     </main>
 
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script> 
+    <script src="../static/scripts.js"></script> 
 </body>
 </html>

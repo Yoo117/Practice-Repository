@@ -80,6 +80,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// 고정 버튼과 주의사항 콘텐츠
+const noticeButton = document.querySelector('#noticeButton')
+const noticeContent = document.querySelector('#noticeContent')
+
+// 버튼 클릭 이벤트
+noticeButton.addEventListener('click', () => {
+    const currentDisplay = window.getComputedStyle(noticeContent).display;
+    
+    if (currentDisplay === 'none') {
+        noticeContent.style.display = 'block';
+    } else {
+        noticeContent.style.display = 'none';
+    }
+});
 
 // 사용자-API 대화 메인 
 function sendMessage() {

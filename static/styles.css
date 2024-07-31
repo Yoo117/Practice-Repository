@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {     
     margin: auto; 
     max-width: 800px; 
@@ -8,18 +15,47 @@ body {
     background-repeat: no-repeat;
 }
 
-header,p {
+p,header {
     text-align: center;
 }
 
+header, .fixed-button {
+    font-family: "ONE-Mobile-POP", sans-serif;
+}
+
 #chatLog {
-    width: 100%;
+    width: 95%;
     height: 300px;
-    border: 1px sodlid #ccc;
     padding: 10px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+}
+
+#toggleBtn.active {
+    background-color: #e1f5fe;
+}
+
+.fixed-button {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    background-color: #e05a77;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notice-content{
+    display: none;
+    position: fixed;
+    top: 30px;
+    right: 5px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    width: 250px;
 }
 
 .button {
@@ -32,15 +68,14 @@ header,p {
     margin-top: 5px;
 }
 
-#toggleBtn.active {
-    background-color: #87ceeb;
-}
-
 .chat-container { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border: 1px solid #000; 
     padding: 10px; 
     border-radius: 5px;
-    background-color: 1px solid #ccc
+    background-color: solid #ccc
 }
 
 .user-input { 
@@ -49,8 +84,13 @@ header,p {
     text-align: left;
 }
 
+.button:hover {
+    background-color : #e1f5fe;
+}
+
 .chat-log { 
-    margin-top: 20px; 
+    margin-top: 20px;
+    margin-left: 0px;
 }
 
 .chat-message { 
