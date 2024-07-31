@@ -1,1 +1,1 @@
-# Private-Repository
+인공지능 일본어 회화 학습 프로젝트입니다.
