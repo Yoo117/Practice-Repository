@@ -1,12 +1,15 @@
-body { 
-    font-family: Arial, sans-serif; 
-    max-width: 800px; 
+body {     
     margin: auto; 
+    max-width: 800px; 
     padding: 20px; 
     background-image: url(background.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+header,p {
+    text-align: center;
 }
 
 #chatLog {
@@ -35,7 +38,8 @@ body {
 .chat-container { 
     border: 1px solid #ccc; 
     padding: 10px; 
-    border-radius: 5px; 
+    border-radius: 5px;
+    background-color: 1px solid #ccc
 }
 
 .user-input { 
