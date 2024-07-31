@@ -3,6 +3,10 @@ body {
     max-width: 800px; 
     margin: auto; 
     padding: 20px; 
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #chatLog {
