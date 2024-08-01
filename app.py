@@ -50,7 +50,7 @@ def send_message():
         max_tokens=200
     )
 
-    # API 대화 내용 기록
+    # AI 대화 내용 기록
     assistant_message = response.choices[0].message.content
     conversation_history.append({"role": "assistant", "content": assistant_message})
 

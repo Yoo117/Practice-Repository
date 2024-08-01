@@ -49,7 +49,7 @@ function resumeRecognition() {
     }
 }
 
-// API 메세지 음성화 
+// AI 메세지 음성화 
 function speakJapanese(text) {
     const japaneseText = text.replace(/[^\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}\s]/gu, '');
     const speechSynthesis = window.speechSynthesis;
@@ -95,7 +95,7 @@ noticeButton.addEventListener('click', () => {
     }
 });
 
-// 사용자-API 대화 메인 
+// 사용자 AI 대화 메인 
 function sendMessage() {
     const userInput = document.querySelector("#userInput").value;
     if (!userInput) return;
@@ -116,7 +116,7 @@ function sendMessage() {
     })
     .then(response => response.json())
     .then(data => {
-        // API 메세지 표시
+        // AI 메세지 표시
         const assistantMessage = document.createElement("div");
         assistantMessage.className = "chat-message assistant-message";
         assistantMessage.textContent = data.response;
