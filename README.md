@@ -46,7 +46,7 @@ graph TD
     Root --> F(app.py)
 ```
 ### 와이어 프레임
-![](../README_Contents/Hana wireframe.png)
+![](./README_Contents/Hana wireframe.png)
 
 
 ## 시연 및 오류 수정
