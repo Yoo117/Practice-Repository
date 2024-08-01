@@ -14,10 +14,10 @@
 
   **사용한 개발자 도구들 및 구현 기능 :** 
   ```md
-  **Python** : GPT API 호출 및 회화 서비스용 프롬프트 설계
-  **Html** : 기본적인 Web 구조 구현
-  **Css** : Web의 간단한 디자인 구현
-  **JavaScript** : 사용자와 API 간의 비동기 통신 구현, Web의 기본적인 기능 설계
+  Python : GPT API 호출 및 회화 서비스용 프롬프트 설계
+  Html : 기본적인 Web 구조 구현
+  Css : Web의 간단한 디자인 구현
+  JavaScript : 사용자와 API 간의 비동기 통신 구현, Web의 기본적인 기능 설계
   ```
 
 ### 개발 일정
@@ -46,7 +46,7 @@ graph TD
     Root --> F(app.py)
 ```
 ### 와이어 프레임
-![](./README_Contents/Hana wireframe.png)
+![img](/README_Contents/Hana_wireframe.png)
 
 
 ## 시연 및 오류 수정
