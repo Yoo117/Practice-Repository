@@ -1,6 +1,6 @@
 # **Hana** : GPT API를 활용한 일본어 회화 실습 프로젝트
 
-## 1. 프로젝트 기획 및 과정
+## 1. 프로젝트 기획
 
 ### 기획 아이디어
   - GPT API를 활용한 챗봇을 활용 할 수 있는 방법 모색
@@ -12,7 +12,7 @@
   - 너무 복잡하고 어려운 말이 아닌, 일상 생활에서 간단하게 사용할 수 있는 단어와 문법을 사용자에게 명시
   - 사용자와의 대화를 이끌어 나가며, 사용자의 답변을 유도할 수 있는 여러 질문들을 던질 것
 
-  **사용한 개발자 도구들 및 구현 기능 :** 
+  **<사용한 개발자 도구들 및 구현 기능 >**
   ```md
   Python : GPT API 호출 및 회화 서비스용 프롬프트 설계
   Html : 기본적인 Web 구조 구현
@@ -20,7 +20,7 @@
   JavaScript : 사용자와 API 간의 비동기 통신 구현, Web의 기본적인 기능 설계
   ```
 
-### 개발 일정
+## 2. 개발 일정
 
 ```mermaid
 gantt
@@ -33,7 +33,7 @@ gantt
     공개 Url 배포 및 기획서 작성 :a4,  after a3  , 1d
 ```
 
-## 2. 구조 및 설계
+## 3. 구조 및 설계
 
 ### 디렉토리 구조
 ```mermaid
@@ -49,7 +49,34 @@ graph TD
 ![img](/README_Contents/Hana_wireframe.png)
 
 
-## 시연 및 오류 수정
+## 4. 시연 및 오류 수정
+
+```html
+<video controls>
+  <source src="/README_Contents/Hana_chat" type="video/mp4">
+  일반 채팅 테스트
+</video>
+<video controls>
+  <source src="/README_Contents/Hana_voice" type="video/mp4">
+  음성 인식 채팅 테스트
+</video>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 중간에 에러
 (음성 발성을 인식하는 문제) -> 음성 발성하는동안 인식함수를 끔
