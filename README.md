@@ -51,16 +51,22 @@ graph TD
 
 ## 4. 시연 및 오류 수정
 
-```html
+
 <video controls>
   <source src="/README_Contents/Hana_chat" type="video/mp4">
-  일반 채팅 테스트
 </video>
+
+
+일반 채팅 테스트
+
+
 <video controls>
   <source src="/README_Contents/Hana_voice" type="video/mp4">
-  음성 인식 채팅 테스트
 </video>
-```
+
+
+음성 인식 채팅 테스트
+
 
 
 
