@@ -55,7 +55,9 @@ graph TD
 
 [음성 인식 채팅 테스트](/README_Contents/Hana_voice.mp4)
 
-
+<video controls>
+  <source src="README_Contents/Hana_chat.mp4" type="video/mp4">
+</video>
 
 중간에 에러
 (음성 발성을 인식하는 문제) -> 음성 발성하는동안 인식함수를 끔
