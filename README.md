@@ -28,9 +28,9 @@ gantt
     dateFormat YYYY-MM-DD
     section 작업
     아이디어 기획 및 기본적인 초안 구성 :a1, 2024-07-29, 1d
-    챗봇 기능 설계 및 웹페이지 구현 :after a1  , 1d
-    음성 기능 등 몇가지 기능 추가 및 프롬프트 수정 :after a2  , 1d
-    공개 Url 배포 및 기획서 작성 :after a3  , 1d
+    챗봇 기능 설계 및 웹페이지 구현 :a2,  after a1  , 1d
+    음성 기능 등 몇가지 기능 추가 및 프롬프트 수정 :a3,  after a2  , 1d
+    공개 Url 배포 및 기획서 작성 :a4,  after a3  , 1d
 ```
 
 ## 2. 구조 및 설계
