@@ -53,7 +53,7 @@ graph TD
 
 
 <video controls>
-  <source src="/README_Contents/Hana_chat.mp4" type="video/mp4">
+  <source src="README_Contents/Hana_chat.mp4" type="video/mp4">
 </video>
 
 
@@ -61,7 +61,7 @@ graph TD
 
 
 <video controls>
-  <source src="/README_Contents/Hana_voice.mp4" type="video/mp4">
+  <source src="README_Contents/Hana_voice.mp4" type="video/mp4">
 </video>
 
 
