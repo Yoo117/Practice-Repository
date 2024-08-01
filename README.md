@@ -1,1 +1,2 @@
-인공지능 일본어 회화 학습 프로젝트입니다.
+웹 URL : https://5247b9f7-a0ab-44f1-b793-06342caa1505-00-22n07igtg5n15.sisko.replit.dev/
+
