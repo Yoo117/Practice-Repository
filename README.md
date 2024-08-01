@@ -7,11 +7,8 @@
 
 ### 1. 프로젝트의 목적
 chat gpt api를 활용한 인공지능 일본어 회화 실습 서비스 프로젝트
-### 2. 
 
-
-
-
+### 2. 프로젝트 기획
 
 
 
@@ -26,17 +23,17 @@ graph TD
     A[static] --> B(scripts.js)
     A --> C(styles.css)
     D[templates] --> E(index.html)
-    Project Root --> A[static]
-    Project Root --> D[templates]
-    Project Root --> F(app.py)
+    Root --> A[static]
+    Root --> D[templates]
+    Root --> F(app.py)
 ```
 
 ```mermaid
 gantt
     title 프로젝트 일정
-    dateFormat MM-DD
+    dateFormat YYYY-MM-DD
     section 작업
-    작업 1 :a1, 07-29, 1d
+    작업 1 :a1, 2024-07-29, 1d
     작업 2 :after a1  , 2d
     작업 3 :after a2  , 1d
 ```
