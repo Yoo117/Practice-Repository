@@ -51,11 +51,7 @@ graph TD
 
 ## 4. 시연 및 오류 수정
 
-[일반 채팅 및 음성 인식 채팅 테스트](/index.html)
-
-<video controls>
-  <source src="README_Contents/Hana_chat.mp4" type="video/mp4">
-</video>
+[일반 채팅 및 음성 인식 채팅 테스트](https://yoo117.github.io/Private-Repository/)
 
 중간에 에러
 (음성 발성을 인식하는 문제) -> 음성 발성하는동안 인식함수를 끔
