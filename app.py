@@ -29,7 +29,7 @@ conversation_history = [
      """},    
 ]
 
-# Html 렌더링
+# HTML 렌더링
 @app.route('/')
 def index():
     return render_template('index.html')
