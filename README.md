@@ -90,7 +90,7 @@ graph TD
 
 ### 공개 URL
 **Hana** :
-(https://5247b9f7-a0ab-44f1-b793-06342caa1505-00-22n07igtg5n15.sisko.replit.dev/)
+~~(https://5247b9f7-a0ab-44f1-b793-06342caa1505-00-22n07igtg5n15.sisko.replit.dev/)~~
 
 ### 배포 서비스 고려
 
