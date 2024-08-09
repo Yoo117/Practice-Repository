@@ -62,7 +62,7 @@ graph TD
 
 ## 4. 시연 및 오류
 
-[일반 채팅 및 음성 인식 채팅 테스트](./Project_1/Demonstration_video.html)
+[일반 채팅 및 음성 인식 채팅 테스트](Project_1/Demonstration_video.html)
 
 ### 발생 오류 및 시정
 
