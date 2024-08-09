@@ -5,28 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
-        a {
-            text-align: center;
-        }
-
         video {
             width: 800px;
             height: 400px;
         }
+        .container {
+            display : flex;
+        }        
         
     </style>
 </head>
 <body>
-    <a href="../index.html">메인 화면</a>
-    <div>
-        시연 영상
+    <h1>시연 영상</h1>
+    <main class="container">
         <video controls>
             <source src="README_Contents/Hana_chat.mp4" type="video/mp4">
         </video>
         <video controls>
             <source src="README_Contents/Hana_voice.mp4" type="video/mp4">
         </video>
-    </div>
+    </main>
+    <a href="../index.html">메인 화면</a>
 </body>
 </html>
