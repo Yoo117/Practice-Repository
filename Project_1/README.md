@@ -57,12 +57,12 @@ graph TD
     Root --> F(app.py)
 ```
 ### 와이어 프레임
-![img](/README_Contents/Hana_wireframe.png)
+![img](/Project_1/README_Contents/Hana_wireframe.png)
 
 
 ## 4. 시연 및 오류
 
-[일반 채팅 및 음성 인식 채팅 테스트](https://yoo117.github.io/Private-Repository/)
+[일반 채팅 및 음성 인식 채팅 테스트](/Project_1/templates/index.html)
 
 ### 발생 오류 및 시정
 
