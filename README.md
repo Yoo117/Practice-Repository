@@ -1,5 +1,7 @@
 # Django를 활용한 블로그 프로젝트
 ## WBS
+
+```mermaid
 graph TD
     A[프로젝트 시작] --> B[8월 26일]
     B --> B1[프로젝트 기획]
@@ -22,4 +24,5 @@ graph TD
 
     classDef milestone fill:#f9f,stroke:#333,stroke-width:2px;
     class A milestone;
+```
 
