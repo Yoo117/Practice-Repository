@@ -125,9 +125,3 @@ erDiagram
 | `/admin` | 관리자 대시보드 | 관리자 권한 필요 |
 | `/admin/users` | 사용자 관리 | 관리자 권한 필요 |
 | `/admin/posts` | 게시글 관리 | 관리자 권한 필요 |
-| `/api/posts` | 게시글 API | API 인증 필요 |
-| `/api/users` | 사용자 API | API 인증 필요 |
-| `/api/comments` | 댓글 API | API 인증 필요 |
-| `/posts?page=<int:page_number>` | 게시글 목록 페이지네이션 | - |
-| `/categories/<str:category_name>` | 카테고리별 게시글 목록 | - |
-| `/feed` | RSS 피드 | - |
