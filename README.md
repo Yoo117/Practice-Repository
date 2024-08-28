@@ -12,6 +12,7 @@ Django를 활용한 여행 블로그 웹 프로젝트입니다.
 | `/about` | 소개 페이지 | - |
 | `/contact` | 주소 페이지 | - |
 | `/test` | 테스트 페이지 | - |
+<br>
 
 - posts
 | URL 경로 | 설명 | 접근 제한 |
@@ -26,6 +27,7 @@ Django를 활용한 여행 블로그 웹 프로젝트입니다.
 | `/posts/<int:post_id>/comment/<int:comment_id>/edit` | 댓글 수정 | 로그인, 본인 댓글만 |
 | `/posts/<int:post_id>/comment/<int:comment_id>/delete` | 댓글 삭제 | 로그인, 본인 댓글만 |
 | `/posts/<int:post_id>/like` | 게시글 좋아요 토글 | 로그인 필요 |
+<br> 
 
 - accounts
 | URL 경로 | 설명 | 접근 제한 |
@@ -36,6 +38,7 @@ Django를 활용한 여행 블로그 웹 프로젝트입니다.
 | `/password_change` | 비밀번호 변경 | 로그인 필요 |
 | `/profile` | 유저 프로필 | 로그인 필요 |
 | `/profile/edit` | 프로필 수정 | 로그인 필요 |
+<br>
 
 - (app)
 | URL 경로 | 설명 | 접근 제한 |
@@ -47,6 +50,7 @@ Django를 활용한 여행 블로그 웹 프로젝트입니다.
 | `/admin` | 관리자 대시보드 | 관리자 권한 필요 |
 | `/admin/users` | 사용자 관리 | 관리자 권한 필요 |
 | `/admin/posts` | 게시글 관리 | 관리자 권한 필요 |
+<br>
 
 ## WBS
 ```mermaid
