@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'main',
     'posts',
     'accounts',
-    'interactions',
 ]
 
 MIDDLEWARE = [
