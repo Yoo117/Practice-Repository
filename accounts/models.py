@@ -55,5 +55,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = '사용자'
         verbose_name_plural = '사용자'    
-
-# 성능 테스트
