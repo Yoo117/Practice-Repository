@@ -46,17 +46,13 @@ Django를 활용한 여행 블로그 웹 프로젝트입니다.
 | `/profile/edit` | 프로필 수정 | 로그인 필요 |
 <br>
 
-- (app)
+- interactions
   
 | URL 경로 | 설명 | 접근 제한 |
 |----------|------|-----------|
 | `/tags` | 태그 목록 | - |
 | `/tags/<str:tag_name>` | 특정 태그의 게시글 목록 | - |
-| `/users/<str:username>/posts` | 특정 사용자의 게시글 목록 | - |
 | `/search-history` | 사용자의 검색 기록 보기 | 로그인 필요 |
-| `/admin` | 관리자 대시보드 | 관리자 권한 필요 |
-| `/admin/users` | 사용자 관리 | 관리자 권한 필요 |
-| `/admin/posts` | 게시글 관리 | 관리자 권한 필요 |
 <br>
 
 ## 3. 프로젝트 구조와 개발 일정
