@@ -12,47 +12,47 @@ Django를 활용한 여행 블로그 웹 프로젝트입니다.
 
 | URL Pattern | View Name | Description |
 |-------------|-----------|-------------|
-| `admin/` | admin.site.urls | Django admin interface |
-| `''` | include('posts.urls') | Include all posts URLs |
-| `accounts/` | include('accounts.urls') | Include all accounts URLs |
-| `interactions/` | include('interactions.urls') | Include all interactions URLs |
+| `admin/` | admin.site.urls | 관리자 페이지 |
+| `''` | include('posts.urls') | posts URL 포함 |
+| `accounts/` | include('accounts.urls') | accounts URL 포함 |
+| `interactions/` | include('interactions.urls') | interactions URL 포함 |
 
 - Accounts App URLs
 
 | URL Pattern | View Name | Description |
 |-------------|-----------|-------------|
-| `signup/` | signup | User registration |
-| `login/` | login | User login |
-| `logout/` | logout | User logout |
-| `profile/` | profile | User profile view |
-| `profile/edit/` | edit_profile | Edit user profile |
-| `password/change/` | change_password | Change user password |
+| `signup/` | signup | 유저 회원가입 |
+| `login/` | login | 유저 로그인 |
+| `logout/` | logout | 유저 로그아웃 |
+| `profile/` | profile | 유저 프로필 열람 |
+| `profile/edit/` | edit_profile | 유저 프로필 수정 |
+| `password/change/` | change_password | 유저 비밀번호 수정 |
 
 - Posts App URLs
 
 | URL Pattern | View Name | Description |
 |-------------|-----------|-------------|
 | `''` | home | Home page |
-| `post/new/` | post_new | Create new post |
-| `post/<int:pk>/` | post_detail | View post details |
-| `post/<int:pk>/edit/` | post_edit | Edit existing post |
-| `post/<int:pk>/delete/` | post_delete | Delete post |
-| `posts/` | post_list | List all posts |
-| `category/<slug:category_slug>/` | category_posts | List posts by category |
-| `tag/<slug:tag_slug>/` | tag_posts | List posts by tag |
-| `search/` | search_posts | Search posts |
+| `post/new/` | post_new | 새 게시글 생성(로그인 필요) |
+| `post/<int:pk>/` | post_detail | 특정 게시글 열람 |
+| `post/<int:pk>/edit/` | post_edit | 게시글 수정(로그인 필요, 본인 글만 가능) |
+| `post/<int:pk>/delete/` | post_delete | 게시글 삭제(로그인 필요, 본인 글만 가능) |
+| `posts/` | post_list | 모든 게시글의 리스트 |
+| `category/<slug:category_slug>/` | category_posts | 카테고리별 게시글 리스트 |
+| `tag/<slug:tag_slug>/` | tag_posts | 태그별 게시글 리스트 |
+| `search/` | search_posts | 게시글 검색 |
 
 - Interactions App URLs
 
 | URL Pattern | View Name | Description |
 |-------------|-----------|-------------|
-| `post/<int:pk>/comment/` | add_comment | Add comment to post |
-| `comment/<int:pk>/reply/` | add_reply | Reply to comment |
-| `comment/<int:pk>/edit/` | edit_comment | Edit comment |
-| `comment/<int:pk>/delete/` | delete_comment | Delete comment |
-| `post/<int:pk>/like/` | like_post | Like/unlike post |
-| `post/<int:pk>/bookmark/` | bookmark_post | Bookmark/unbookmark post |
-| `notifications/` | notifications | View user notifications |
+| `post/<int:pk>/comment/` | add_comment | 게시글 댓글(로그인 필요) |
+| `comment/<int:pk>/reply/` | add_reply | 게시글 댓글의 대댓글(로그인 필요) |
+| `comment/<int:pk>/edit/` | edit_comment | 댓글 수정(로그인 필요, 본인 글만 가능) |
+| `comment/<int:pk>/delete/` | delete_comment | 댓글 삭제(로그인 필요, 본인 글만 가능) |
+| `post/<int:pk>/like/` | like_post | 게시글 좋아요 기능 |
+| `post/<int:pk>/bookmark/` | bookmark_post | 북마크 기능(로그인 필요) |
+| `notifications/` | notifications | 유저 알림(로그인 필요) |
 
 ## 3. 프로젝트 구조와 개발 일정
 ### 3.1 프로젝트 구조
