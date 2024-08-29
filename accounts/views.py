@@ -1,33 +1,41 @@
-from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, CreateView, UpdateView
-from django.contrib.auth.views import PasswordChangeView
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, FormView, UpdateView, TemplateView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import User
+from .forms import SignupForm, LoginForm, ProfileForm, ChangePasswordForm
 
 class SignupView(CreateView):
-    form_class = UserCreationForm
-    template_name = 'registration/signup.html'
-    success_url = '/login/'
+    model = User
+    form_class = SignupForm
+    template_name = 'accounts/signup.html'
+    success_url = reverse_lazy('login')
 
-class ProfileView(TemplateView):
-    template_name = 'profile.html'
+class LoginView(LoginView):
+    form_class = LoginForm
+    template_name = 'accounts/login.html'
+
+class LogoutView(LogoutView):
+    template_name = 'accounts/logged_out.html'
+
+class ProfileView(LoginRequiredMixin, TemplateView):
+    template_name = 'accounts/profile.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user'] = self.request.user
         return context
 
-class EditProfileView(UpdateView):
-    form_class = UserChangeForm
-    template_name = 'profile_edit.html'
-    success_url = '/profile/'
+class EditProfileView(LoginRequiredMixin, UpdateView):
+    model = User
+    form_class = ProfileForm
+    template_name = 'accounts/edit_profile.html'
+    success_url = reverse_lazy('profile')
 
-    def get_object(self, queryset=None):
+    def get_object(self):
         return self.request.user
 
-class ChangePasswordView(PasswordChangeView):
-    form_class = PasswordChangeForm
-    template_name = 'registration/password_change_form.html'
-    success_url = '/profile/'
+class ChangePasswordView(LoginRequiredMixin, PasswordChangeView):
+    form_class = ChangePasswordForm
+    template_name = 'accounts/change_password.html'
+    success_url = reverse_lazy('profile')
