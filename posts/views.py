@@ -70,3 +70,12 @@ class CategorypostsView(ListView):
 
     def get_queryset(self):
         return Post.objects.filter(category__slug=self.kwargs)
+    
+class CategoryPostsView():
+    pass
+
+class TagPostsView():
+    pass
+
+class SearchPostsView():
+    pass
