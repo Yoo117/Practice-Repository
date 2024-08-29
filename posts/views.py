@@ -46,7 +46,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         post = self.get_object()
         return self.request.user == post.author
     
-    def handel_no_permission(self):
+    def handle_no_permission(self):
         # 사용자가 작성자가 아닐 시, 게시글 상세페이지로 이동
         return redirect('post_detail', pk=self.get_object().pk)
 
