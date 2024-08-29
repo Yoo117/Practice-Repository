@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'accounts',
-    'interactions'
+    'interactions',
+    'taggit',
 ]
 
 MIDDLEWARE = [

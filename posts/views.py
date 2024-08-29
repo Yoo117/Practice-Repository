@@ -15,7 +15,7 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
-    context_object_nema = 'post'
+    context_object_name = 'post'
 
     def get_object(self):
         # 조회수 카운팅
@@ -28,30 +28,30 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = 'blog/post_form.html'
-    success_url = reverse_lazy('post_list')
 
     def form_valid(self, form):
-        # 현재 사용자를 작성자로 설정
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('post_detail', kwargs={'pk': self.object.pk})
     
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'blog/post_form.html'
-    success_url = reverse_lazy('post_list')
 
     def test_func(self):
-        # 현재 사용자가 작성자인지 확인
         post = self.get_object()
         return self.request.user == post.author
-    
+
+    def get_success_url(self):
+        return reverse_lazy('post_detail', kwargs={'pk': self.object.pk})
+
     def handle_no_permission(self):
-        # 사용자가 작성자가 아닐 시, 게시글 상세페이지로 이동
         return redirect('post_detail', pk=self.get_object().pk)
 
-
-class PostDeleteView(LoginRequiredMixin, DeleteView):
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'blog/post_confirm_delete.html'
     success_url = reverse_lazy('post_list')
@@ -59,7 +59,7 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
-    
+
     def handle_no_permission(self):
         return redirect('post_detail', pk=self.get_object().pk)
 
@@ -98,7 +98,9 @@ class SearchPostsView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q')
-        return Post.objects.filter(title__icontains=query).order_by('-created_at')
+        if query:
+            return Post.objects.filter(title__icontains=query).order_by('-created_at')
+        return Post.objects.none()  # 검색어가 없으면 빈 쿼리셋 반환
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
