@@ -36,7 +36,7 @@
                         {% for category in categories %}
                             <a href="{% url 'category_posts' category.slug %}" class="badge bg-light text-dark me-2 mb-2">{{ category.name }}</a>
                         {% empty %}
-                            <p>No categories available.</p>
+                            <p>카테고리가 없습니다.</p>
                         {% endfor %}
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                         {% for tag in tags %}
                             <a href="{% url 'tag_posts' tag.slug %}" class="badge bg-light text-dark me-2 mb-2">{{ tag.name }}</a>
                         {% empty %}
-                            <p>No tags available.</p>
+                            <p>태그가 없습니다.</p>
                         {% endfor %}
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                 {% empty %}
-                    <p>No posts available.</p>
+                    <p>게시글이 없습니다.</p>
                 {% endfor %}
             </div>
 
