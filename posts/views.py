@@ -49,8 +49,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = 'posts/post_form.html'
 
     def test_func(self):
-        # 요청한 유저가 작성자 본인인지 확인
-        post = self.get_object()
+        post = self.get_object() # 요청한 유저가 작성자 본인인지 확인
         return self.request.user == post.author
 
     def get_success_url(self):
@@ -65,8 +64,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('post_list')
 
     def test_func(self):
-        # 요청한 유저가 작성자 본인인지 확인
-        post = self.get_object()
+        post = self.get_object() # 요청한 유저가 작성자 본인인지 확인
         return self.request.user == post.author
 
     def handle_no_permission(self):
@@ -74,35 +72,31 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class CategoryPostsView(ListView):
     model = Post
-    template_name = 'post_list.html'
+    template_name = 'posts/post_list.html'
     context_object_name = 'posts'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         category_slug = self.kwargs.get('slug')
-        # context에 변수들 추가
-        context['category'] = Category.objects.get(slug=category_slug)
+        context['category'] = Category.objects.get(slug=category_slug) # context에 category 변수 추가
         context['categories'] = Category.objects.all()
-        context['tags'] = Tag.objects.all()
 
         return context
 
     def get_queryset(self):
         category_slug = self.kwargs.get('slug')
-        return Post.objects.filter(categories__slug=category_slug)
+        return Post.objects.filter(category__slug=category_slug)
 
 class TagPostsView(ListView):
     model = Post
-    template_name = 'post_list.html'
+    template_name = 'posts/post_list.html'
     context_object_name = 'posts'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         tag_slug = self.kwargs.get('slug')
-        # context에 변수들 추가
-        context['tag'] = Tag.objects.get(slug=tag_slug)
+        context['tag'] = Tag.objects.get(slug=tag_slug) # context에 tag 변수 추가
         context['tags'] = Tag.objects.all()
-        context['categories'] = Category.objects.all()
 
         return context
 
@@ -118,12 +112,10 @@ class SearchPostsView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         query = self.request.GET.get('q', '')
-        # 검색을 사용자 쿼리로 입력받음
-        context['query'] = query
-        
-        # Tag와 Category도 검색 변수에 추가
-        context['tags'] = Tag.objects.all()
-        context['categories'] = Category.objects.all()
+
+        context['query'] = query # 검색을 사용자 쿼리로 입력받음
+        context['tags'] = Tag.objects.all() # Tag 검색 변수 추가
+        context['categories'] = Category.objects.all() # Category 검색 변수 추가
         
         return context
 

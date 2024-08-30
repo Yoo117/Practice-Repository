@@ -18,7 +18,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     tags = TaggableManager()
     image = models.ImageField(upload_to='posts_images/', blank=True, null=True)
-    views = models.PositiveIntegerField(default=0)
+    views = models.PositiveIntegerField(default=0) # 조회수 모델 설정
 
     def __str__(self):
         return self.title
