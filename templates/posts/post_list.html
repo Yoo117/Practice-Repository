@@ -1,32 +1,121 @@
 {% extends "base.html" %}
 {% block title %}Posts{% endblock %}
 {% block content %}
-    <h1 class="mb-4">{% if category %}Category: {{ category.name }}{% elif tag %}Tag: {{ tag.name }}{% elif query %}Search results for "{{ query }}"{% else %}All Posts{% endif %}</h1>
-    {% for post in posts %}
-        <div class="card mb-3">
-            <div class="card-body">
-                <h2 class="card-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
-                <p class="card-text">By {{ post.author }} on {{ post.created_at }}</p>
-                <p class="card-text">{{ post.excerpt }}</p>
-                <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">Read more...</a>
+<div class="container">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">ABOUT ME</h5>
+                    <img src="{{ user.profile_picture.url }}" class="img-fluid rounded-circle mb-3" alt="Profile Picture">
+                    <h6 class="card-subtitle mb-2 text-muted">{{ user.username }}</h6>
+                    <p class="card-text">{{ user.bio }}</p>
+                </div>
+            </div>
+            
+            <!-- Search form -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">SEARCH</h5>
+                    <form method="get" action="{% url 'search_posts' %}">
+                        <div class="mb-3">
+                            <input type="text" name="q" class="form-control" placeholder="Search..." value="{{ query }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">CATEGORIES</h5>
+                    <div class="d-flex flex-wrap">
+                        {% for category in categories %}
+                            <a href="{% url 'category_posts' category.slug %}" class="badge bg-light text-dark me-2 mb-2">{{ category.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tags -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">TAGS</h5>
+                    <div class="d-flex flex-wrap">
+                        {% for tag in tags %}
+                            <a href="{% url 'tag_posts' tag.slug %}" class="badge bg-light text-dark me-2 mb-2">{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
-    {% empty %}
-        <p>No posts found.</p>
-    {% endfor %}
-    {% if is_paginated %}
-        <nav>
-            <ul class="pagination">
-                {% if page_obj.has_previous %}
-                    <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li>
-                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+        
+        <!-- Main content -->
+        <div class="col-md-9">
+            <h1 class="mb-4">
+                {% if category %}
+                    Category: {{ category.name }}
+                {% elif tag %}
+                    Tag: {{ tag.name }}
+                {% elif query %}
+                    Search results for "{{ query }}"
+                {% else %}
+                    All Posts
                 {% endif %}
-                <li class="page-item disabled"><span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span></li>
-                {% if page_obj.has_next %}
-                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-    {% endif %}
+            </h1>
+            
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for post in posts %}
+                    <div class="col">
+                        <div class="card h-100">
+                            {% if post.image %}
+                                <img src="{{ post.image.url }}" class="card-img-top img-fluid" alt="{{ post.title }}">
+                            {% endif %}
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div>
+                                        {% for category in post.categories.all %}
+                                            <span class="badge bg-primary">{{ category.name }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <h5 class="card-title"><a href="{% url 'post_detail' post.pk %}" class="text-dark text-decoration-none">{{ post.title }}</a></h5>
+                                <p class="card-text">{{ post.excerpt }}</p>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="{{ post.author.profile_picture.url }}" class="rounded-circle me-2" width="30" height="30" alt="{{ post.author }}">
+                                        <small class="text-muted">{{ post.author }}</small>
+                                    </div>
+                                    <small class="text-muted">{{ post.created_at|date:"Y.m.d" }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No posts found.</p>
+                {% endfor %}
+            </div>
+            
+            {% if is_paginated %}
+                <nav class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                        {% endif %}
+                        <li class="page-item disabled"><span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span></li>
+                        {% if page_obj.has_next %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
