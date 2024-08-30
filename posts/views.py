@@ -68,9 +68,6 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         # 요청한 유저가 작성자 본인인지 확인
         post = self.get_object()
         return self.request.user == post.author
-    
-    def get_success_url(self):
-        return reverse_lazy('post_list', kwargs={'pk': self.object.pk})
 
     def handle_no_permission(self):
         return redirect('post_detail', pk=self.get_object().pk)
