@@ -17,7 +17,7 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     tags = TaggableManager()
-    image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
+    image = models.ImageField(upload_to='posts_images/', blank=True, null=True)
     views = models.PositiveIntegerField(default=0)
 
     def __str__(self):
