@@ -43,6 +43,7 @@
             <!-- 삭제 버튼을 작성자에게만 표시 -->
             {% if request.user == post.author %}
                 <div class="mt-4 text-center">
+                    <a href="{% url 'post_edit' pk=post.pk %}" class="btn btn-primary">Edit Post</a>
                     <a href="{% url 'post_delete' pk=post.pk %}" class="btn btn-danger">Delete Post</a>
                 </div>
             {% endif %}
