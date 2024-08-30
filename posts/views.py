@@ -36,8 +36,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     template_name = 'posts/post_form.html'
 
     def form_valid(self, form):
-        # 저자를 현재 유저로 설정
-        form.instance.author = self.request.user
+        form.instance.author = self.request.user # 저자를 현재 유저로 설정
         return super().form_valid(form)
 
     def get_success_url(self):
