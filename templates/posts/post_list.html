@@ -22,7 +22,7 @@
                         <div class="mb-3">
                             <input type="text" name="q" class="form-control" placeholder="Search..." value="{{ query }}">
                         </div>
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" class="btn btn-primary">검색!</button>
                     </form>
                 </div>
             </div>
@@ -34,6 +34,8 @@
                     <div class="d-flex flex-wrap">
                         {% for category in categories %}
                             <a href="{% url 'category_posts' category.slug %}" class="badge bg-light text-dark me-2 mb-2">{{ category.name }}</a>
+                        {% empty %}
+                            <p>카테고리가 없습니다.</p>
                         {% endfor %}
                     </div>
                 </div>
@@ -46,6 +48,8 @@
                     <div class="d-flex flex-wrap">
                         {% for tag in tags %}
                             <a href="{% url 'tag_posts' tag.slug %}" class="badge bg-light text-dark me-2 mb-2">{{ tag.name }}</a>
+                        {% empty %}
+                            <p>Tag가 없습니다.</p>
                         {% endfor %}
                     </div>
                 </div>
@@ -96,7 +100,7 @@
                         </div>
                     </div>
                 {% empty %}
-                    <p>No posts found.</p>
+                    <p>포스트가 없습니다.</p>
                 {% endfor %}
             </div>
             
