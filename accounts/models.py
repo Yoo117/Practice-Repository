@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
+from django.conf import settings
 
 class CustomUserManager(UserManager):
     def create_user(self, username, email, password, **extra_fields):
@@ -7,8 +8,8 @@ class CustomUserManager(UserManager):
             raise ValueError('이메일은 필수입니다.')
         email = self.normalize_email(email)
         user = self.model(
-            username = username,
-            email = email,
+            username=username,
+            email=email,
             **extra_fields,
         )
         user.set_password(password)
@@ -31,6 +32,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(unique=True)
     nickname = models.CharField(max_length=50, unique=True)
+    profile_picture = models.ImageField(upload_to='profile_pics/', default='profile_pics/default_profile_picture.png')
 
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -54,4 +56,4 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         verbose_name = '사용자'
-        verbose_name_plural = '사용자'    
+        verbose_name_plural = '사용자'
