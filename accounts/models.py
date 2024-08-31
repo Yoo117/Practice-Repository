@@ -1,5 +1,4 @@
-from django.conf import settings
-from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin, User
 from django.db import models
 
 class CustomUserManager(UserManager):
@@ -45,7 +44,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     date_joined = models.DateTimeField(auto_now_add=True)
 
-    objects = CustomUserManager()
+    objects = CustomUserManager() # 해당 클래스를 매니저로 설정
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['nickname']
@@ -59,3 +58,17 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = '사용자'
         verbose_name_plural = '사용자'
+
+class Notification(models.Model):
+    recipient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')
+    sender = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='sent_notifications')
+    message = models.CharField(max_length=255)
+    url = models.URLField(null=True, blank=True)  # 알림 클릭 시 이동할 URL
+    is_read = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Notification for {self.recipient.nickname} - {self.message}"
+
+    class Meta:
+        ordering = ['-created_at']  # 최신 알림이 먼저 표시되도록 정렬
