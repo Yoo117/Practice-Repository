@@ -113,7 +113,6 @@ erDiagram
 
     User {
         int id PK
-        string username
         string email
         string nickname
         boolean is_staff
