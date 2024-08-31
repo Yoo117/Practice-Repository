@@ -120,6 +120,7 @@ erDiagram
         boolean is_active
         boolean is_superuser
         datetime date_joined
+        image profile_picture
     }
 
     Post {
