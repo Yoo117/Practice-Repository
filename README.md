@@ -8,6 +8,7 @@
 ## 2. 개발 환경 및 배포 URL
 ### 2.1 개발 환경
 ### 2.2 URL 구조(모놀리식)
+
 - Main App URLs
 
 | URL Pattern | View Name | Description |
@@ -15,7 +16,6 @@
 | `admin/` | admin.site.urls | 관리자 페이지 |
 | `''` | include('posts.urls') | posts URL 포함 |
 | `accounts/` | include('accounts.urls') | accounts URL 포함 |
-| `interactions/` | include('interactions.urls') | interactions URL 포함 |
 
 - Accounts App URLs
 
@@ -27,6 +27,7 @@
 | `profile/` | ProfileView | 유저 프로필 열람 |
 | `profile/edit/` | EditProfileView | 유저 프로필 수정 |
 | `password/change/` | ChangePasswordView| 유저 비밀번호 수정 |
+| `notifications/` | NotificationsView | 유저 알림(로그인 필요) |
 
 - Posts App URLs
 
@@ -41,18 +42,12 @@
 | `category/<slug:category_slug>/` | CategoryPostsView | 카테고리별 게시글 리스트 |
 | `tag/<slug:tag_slug>/` | TagPostsView | 태그별 게시글 리스트 |
 | `search/` | SearchPostsView | 게시글 검색 |
-
-- Interactions App URLs
-
-| URL Pattern | View Name | Description |
-|-------------|-----------|-------------|
 | `post/<int:pk>/comment/` | AddCommentView | 게시글 댓글(로그인 필요) |
 | `comment/<int:pk>/reply/` | AddReplyView | 게시글 댓글의 대댓글(로그인 필요) |
 | `comment/<int:pk>/edit/` | EditCommentView | 댓글 수정(로그인 필요, 본인 글만 가능) |
 | `comment/<int:pk>/delete/` | DeleteCommentView | 댓글 삭제(로그인 필요, 본인 글만 가능) |
 | `post/<int:pk>/like/` | LikePostView | 게시글 좋아요 기능 |
 | `post/<int:pk>/bookmark/` | BookmarkPostView | 북마크 기능(로그인 필요) |
-| `notifications/` | NotificationsView | 유저 알림(로그인 필요) |
 
 ## 3. 프로젝트 구조와 개발 일정
 ### 3.1 프로젝트 구조
