@@ -24,7 +24,7 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['user'] = self.request.user
+        context['user'] = self.request.user # 요청한 현재 사용자를 context에 추가
         return context
 
 class EditProfileView(LoginRequiredMixin, UpdateView):
