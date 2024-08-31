@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from taggit.models import Tag
+
 from .models import Post, Category
 from .forms import PostForm
 

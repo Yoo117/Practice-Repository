@@ -1,9 +1,10 @@
+from django.http import JsonResponse
+from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
 from django.views import View
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404
-from django.http import JsonResponse
+
 from .models import Post, Comment, Like, Bookmark, Notification
 from .forms import CommentForm, ReplyForm, BookmarkForm, NotificationForm
 

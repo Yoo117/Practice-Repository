@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
+
 from .models import User
 
 class SignupForm(UserCreationForm):

@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import Comment, Bookmark, Notification
 
 class CommentForm(forms.ModelForm):

@@ -1,6 +1,6 @@
-from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
 from django.conf import settings
+from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
+from django.db import models
 
 class CustomUserManager(UserManager):
     # 일반 유저 생성
