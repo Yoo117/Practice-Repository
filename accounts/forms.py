@@ -5,7 +5,7 @@ from .models import User
 class SignupForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['email', 'username', 'nickname', 'password1', 'password2']
+        fields = ['email', 'nickname', 'password1', 'password2']
 
 class LoginForm(AuthenticationForm):
     username = forms.EmailField(widget=forms.EmailInput(attrs={'autofocus': True}))
@@ -17,7 +17,7 @@ class LoginForm(AuthenticationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'nickname', 'email']
+        fields = ['nickname', 'email']
 
 class ChangePasswordForm(PasswordChangeForm):
     class Meta:
