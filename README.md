@@ -22,8 +22,8 @@
 | URL Pattern | View Name | Description |
 |-------------|-----------|-------------|
 | `signup/` | SignupView | 유저 회원가입 |
-| `login/` | LoginView | 유저 로그인 |
-| `logout/` | LogoutView | 유저 로그아웃 |
+| `login/` | CustomLoginView | 유저 로그인 |
+| `logout/` | CustomLogoutView | 유저 로그아웃 |
 | `profile/` | ProfileView | 유저 프로필 열람 |
 | `profile/edit/` | EditProfileView | 유저 프로필 수정 |
 | `password/change/` | ChangePasswordView| 유저 비밀번호 수정 |
