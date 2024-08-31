@@ -16,7 +16,6 @@ class PostAdmin(admin.ModelAdmin):
     )
 
     def save_model(self, request, obj, form, change):
-        # Optionally, handle additional processing before saving
         super().save_model(request, obj, form, change)
 
 @admin.register(Category)
