@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Logged Out{% endblock %}
+{% block content %}
+    <h1 class="mb-4">로그아웃</h1>
+    <p>성공적으로 로그아웃됐습니다.</p>
+    <a href="{% url 'login' %}" class="btn btn-primary">다시 로그인하기.</a>
+{% endblock %}

@@ -55,9 +55,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     def get_full_name(self):
         return self.nickname
-    
-    def get_short_name(self):
-        return self.nickname
 
     class Meta:
         verbose_name = '사용자'

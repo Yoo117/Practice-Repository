@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, FormView, UpdateView, TemplateView
+from django.views.generic import CreateView, UpdateView, TemplateView
 from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import User
@@ -11,11 +11,11 @@ class SignupView(CreateView):
     template_name = 'accounts/signup.html'
     success_url = reverse_lazy('login')
 
-class LoginView(LoginView):
+class CustomLoginView(LoginView):
     form_class = LoginForm
     template_name = 'accounts/login.html'
 
-class LogoutView(LogoutView):
+class CustomLogoutView(LogoutView):
     template_name = 'accounts/logged_out.html'
 
 class ProfileView(LoginRequiredMixin, TemplateView):

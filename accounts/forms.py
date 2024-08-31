@@ -17,7 +17,7 @@ class LoginForm(AuthenticationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['nickname', 'email']
+        fields = ['nickname', 'email', 'profile_picture']
 
 class ChangePasswordForm(PasswordChangeForm):
     class Meta:
