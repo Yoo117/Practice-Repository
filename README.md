@@ -57,60 +57,7 @@
 
 ### 3.1 프로젝트 구조
 
-project_root/
-├── accounts/
-│   ├── __pycache__/
-│   ├── migrations/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── media/
-├── posts/
-│   ├── __pycache__/
-│   ├── migrations/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── project/
-│   ├── __pycache__/
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── static/
-│   └── images/
-│       └── default_profile_picture...
-├── templates/
-│   ├── accounts/
-│   │   ├── change_password.html
-│   │   ├── edit_profile.html
-│   │   ├── logged_out.html
-│   │   ├── login.html
-│   │   ├── profile.html
-│   │   └── signup.html
-│   ├── posts/
-│   │   ├── post_confirm_delete.html
-│   │   ├── post_detail.html
-│   │   ├── post_form.html
-│   │   └── post_list.html
-│   └── base.html
-├── venv/
-├── .gitignore
-├── db.sqlite3
-├── manage.py
-├── README.md
-└── requirements.txt
+project_root/ ├── accounts/ │ ├── pycache/ │ ├── migrations/ │ ├── init.py │ ├── admin.py │ ├── apps.py │ ├── forms.py │ ├── models.py │ ├── tests.py │ ├── urls.py │ └── views.py ├── media/ ├── posts/ │ ├── pycache/ │ ├── migrations/ │ ├── init.py │ ├── admin.py │ ├── apps.py │ ├── forms.py │ ├── models.py │ ├── tests.py │ ├── urls.py │ └── views.py ├── project/ │ ├── pycache/ │ ├── init.py │ ├── asgi.py │ ├── settings.py │ ├── urls.py │ └── wsgi.py ├── static/ │ └── images/ │ └── default_profile_picture... ├── templates/ │ ├── accounts/ │ │ ├── change_password.html │ │ ├── edit_profile.html │ │ ├── logged_out.html │ │ ├── login.html │ │ ├── profile.html │ │ └── signup.html │ ├── posts/ │ │ ├── post_confirm_delete.html │ │ ├── post_detail.html │ │ ├── post_form.html │ │ └── post_list.html │ └── base.html ├── venv/ ├── .gitignore ├── db.sqlite3 ├── manage.py ├── README.md └── requirements.txt
 
 ### 3.2 개발 일정(WBS)
 ```mermaid
@@ -233,40 +180,40 @@ erDiagram
         string slug
     }
 
-    %% Comment {
-    %%     int id PK
-    %%     text content
-    %%     datetime created_at
-    %%     datetime updated_at
-    %%     int author FK
-    %%     int post FK
-    %%     int parent FK
-    %% }
+    Comment {
+        int id PK
+        text content
+        datetime created_at
+        datetime updated_at
+        int author FK
+        int post FK
+        int parent FK
+    }
 
-    %% Like {
-    %%     int id PK
-    %%     int user FK
-    %%     int post FK
-    %%     datetime created_at
-    %% }
+    Like {
+        int id PK
+        int user FK
+        int post FK
+        datetime created_at
+    }
 
-    %% Bookmark {
-    %%     int id PK
-    %%     int user FK
-    %%     int post FK
-    %%     datetime created_at
-    %% }
+    Bookmark {
+        int id PK
+        int user FK
+        int post FK
+        datetime created_at
+    }
 
-    %% Notification {
-    %%     int id PK
-    %%     string notification_type
-    %%     int recipient FK
-    %%     int actor FK
-    %%     string verb
-    %%     int target FK
-    %%     datetime created_at
-    %%     boolean is_read
-    %% }
+    Notification {
+        int id PK
+        string notification_type
+        int recipient FK
+        int actor FK
+        string verb
+        int target FK
+        datetime created_at
+        boolean is_read
+    }
 
     Tag {
         int id PK
