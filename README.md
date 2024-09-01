@@ -57,61 +57,61 @@
 
 ### 3.1 프로젝트 구조
 
-```bash
-project_root/
-├── accounts/
-│   ├── __pycache__/
-│   ├── migrations/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── media/
-├── posts/
-│   ├── __pycache__/
-│   ├── migrations/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── project/
-│   ├── __pycache__/
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── static/
-│   └── images/
-│       └── default_profile_picture...
-├── templates/
-│   ├── accounts/
-│   │   ├── change_password.html
-│   │   ├── edit_profile.html
-│   │   ├── logged_out.html
-│   │   ├── login.html
-│   │   ├── profile.html
-│   │   └── signup.html
-│   ├── posts/
-│   │   ├── post_confirm_delete.html
-│   │   ├── post_detail.html
-│   │   ├── post_form.html
-│   │   └── post_list.html
-│   └── base.html
-├── venv/
-├── .gitignore
-├── db.sqlite3
-├── manage.py
-├── README.md
-└── requirements.txt
+```
+📦project_root/
+├── 📂accounts/
+│   ├── 📜__pycache__/
+│   ├── 📜migrations/
+│   ├── 📜__init__.py
+│   ├── 📜admin.py
+│   ├── 📜apps.py
+│   ├── 📜forms.py
+│   ├── 📜models.py
+│   ├── 📜tests.py
+│   ├── 📜urls.py
+│   └── 📜views.py
+├── 📂media/
+├── 📂posts/
+│   ├── 📜__pycache__/
+│   ├── 📜migrations/
+│   ├── 📜__init__.py
+│   ├── 📜admin.py
+│   ├── 📜apps.py
+│   ├── 📜forms.py
+│   ├── 📜models.py
+│   ├── 📜tests.py
+│   ├── 📜urls.py
+│   └── 📜views.py
+├── 📂project/
+│   ├── 📜__pycache__/
+│   ├── 📜__init__.py
+│   ├── 📜asgi.py
+│   ├── 📜settings.py
+│   ├── 📜urls.py
+│   └── 📜wsgi.py
+├── 📂static/
+│   └── 📂images/
+│       └── 📜default_profile_picture.png
+├── 📂templates/
+│   ├── 📂accounts/
+│   │   ├── 📜change_password.html
+│   │   ├── 📜edit_profile.html
+│   │   ├── 📜logged_out.html
+│   │   ├── 📜login.html
+│   │   ├── 📜profile.html
+│   │   └── 📜signup.html
+│   ├── 📂posts/
+│   │   ├── 📜post_confirm_delete.html
+│   │   ├── 📜post_detail.html
+│   │   ├── 📜post_form.html
+│   │   └── 📜post_list.html
+│   └── 📜base.html
+├── 📜venv/
+├── 📜.gitignore
+├── 📜db.sqlite3
+├── 📜manage.py
+├── 📜README.md
+└── 📜requirements.txt
 ```
 
 ### 3.2 개발 일정(WBS)
@@ -196,14 +196,14 @@ gantt
 ## 5. 데이터베이스 모델링(ERD)
 ```mermaid
 erDiagram
-    User ||--o{ Post : writes
-    User ||--o{ Comment : makes
-    User ||--o{ Like : gives
-    User ||--o{ Bookmark : saves
-    User ||--o{ Notification : receives
-    Post ||--o{ Comment : has
-    Post ||--o{ Like : receives
-    Post ||--o{ Bookmark : has
+    User ||--o{ ~~Post : writes~~
+    User ||--o{ ~~Comment : makes~~
+    User ||--o{ ~~Like : gives~~
+    User ||--o{ ~~Bookmark : saves~~
+    User ||--o{ ~~Notification : receives~~
+    Post ||--o{ ~~Comment : has~~
+    Post ||--o{ ~~Like : receives~~
+    Post ||--o{ ~~Bookmark : has~~
     Post }o--|| Category : belongs_to
     Post }o--o{ Tag : has
 
@@ -235,7 +235,7 @@ erDiagram
         string slug
     }
 
-    Comment {
+    ~~Comment {
         int id PK
         text content
         datetime created_at
@@ -243,23 +243,23 @@ erDiagram
         int author FK
         int post FK
         int parent FK
-    }
+    }~~
 
-    Like {
+    ~~Like {
         int id PK
         int user FK
         int post FK
         datetime created_at
-    }
+    }~~
 
-    Bookmark {
+    ~~Bookmark {
         int id PK
         int user FK
         int post FK
         datetime created_at
-    }
+    }~~
 
-    Notification {
+    ~~Notification {
         int id PK
         string notification_type
         int recipient FK
@@ -268,15 +268,15 @@ erDiagram
         int target FK
         datetime created_at
         boolean is_read
-    }
+    }~~
 
     Tag {
         int id PK
         string name
         string slug
     }
-
 ```
+
 ## 6. 와이어 프레임
 
 
