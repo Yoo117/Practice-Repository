@@ -28,6 +28,7 @@
                     <li class="nav-item">
                         <a class="btn btn-outline-primary nav-link" href="{% url 'post_list' %}">Home</a>
                     </li>
+                    <!-- 유저가 로그인시 보이는 메뉴-->
                     {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="btn btn-outline-primary nav-link" href="{% url 'profile' %}">Profile</a>
@@ -41,6 +42,7 @@
                                 <button type="submit" class="btn btn-outline-danger nav-link">Logout</button>
                             </form>
                         </li>
+                        <!-- 유저가 로그인하지 않을 시 보이는 메뉴-->
                     {% else %}
                         <li class="nav-item">
                             <a class="btn btn-outline-primary nav-link" href="{% url 'login' %}">Login</a>
