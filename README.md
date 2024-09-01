@@ -196,14 +196,14 @@ gantt
 ## 5. 데이터베이스 모델링(ERD)
 ```mermaid
 erDiagram
-    User ||--o{ ~~Post : writes~~
-    User ||--o{ ~~Comment : makes~~
-    User ||--o{ ~~Like : gives~~
-    User ||--o{ ~~Bookmark : saves~~
-    User ||--o{ ~~Notification : receives~~
-    Post ||--o{ ~~Comment : has~~
-    Post ||--o{ ~~Like : receives~~
-    Post ||--o{ ~~Bookmark : has~~
+    User ||--o{ Post : writes
+    User ||--o{ Comment : makes
+    User ||--o{ Like : gives
+    User ||--o{ Bookmark : saves
+    User ||--o{ Notification : receives
+    Post ||--o{ Comment : has
+    Post ||--o{ Like : receives
+    Post ||--o{ Bookmark : has
     Post }o--|| Category : belongs_to
     Post }o--o{ Tag : has
 
@@ -235,7 +235,7 @@ erDiagram
         string slug
     }
 
-    ~~Comment {
+    Comment {
         int id PK
         text content
         datetime created_at
@@ -243,23 +243,23 @@ erDiagram
         int author FK
         int post FK
         int parent FK
-    }~~
+    }
 
-    ~~Like {
+    Like {
         int id PK
         int user FK
         int post FK
         datetime created_at
-    }~~
+    }
 
-    ~~Bookmark {
+    Bookmark {
         int id PK
         int user FK
         int post FK
         datetime created_at
-    }~~
+    }
 
-    ~~Notification {
+    Notification {
         int id PK
         string notification_type
         int recipient FK
@@ -268,15 +268,15 @@ erDiagram
         int target FK
         datetime created_at
         boolean is_read
-    }~~
+    }
 
     Tag {
         int id PK
         string name
         string slug
     }
-```
 
+```
 ## 6. 와이어 프레임
 
 
