@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}  
+{% load static %}
 {% block title %}Posts{% endblock %}
 {% block content %}
 <div class="container">
@@ -79,24 +79,36 @@
                                 <img src="{{ post.image.url }}" class="card-img-top img-fluid" alt="{{ post.title }}">
                             {% endif %}
                             <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <div>
-                                        {% for category in post.categories.all %}
-                                            <span class="badge bg-primary">{{ category.name }}</span>
-                                        {% endfor %}
-                                    </div>
-                                </div>
                                 <h5 class="card-title"><a href="{% url 'post_detail' post.pk %}" class="text-dark text-decoration-none">{{ post.title }}</a></h5>
                                 <p class="card-text">{{ post.excerpt }}</p>
-                            </div>
-                            <div class="card-footer bg-transparent">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{% if post.author.profile_picture %}{{ post.author.profile_picture.url }}{% else %}{% static 'images/default_profile_picture.png' %}{% endif %}" class="rounded-circle me-2" width="30" height="30" alt="{{ post.author }}">
-                                        <small class="text-muted">{{ post.author.get_short_name }}</small>
-                                    </div>
-                                    <small class="text-muted">{{ post.created_at|date:"Y.m.d" }}</small>
+                                <div class="d-flex flex-wrap mb-2">
+                                    <!-- 카테고리 -->
+                                    {% if post.category %}
+                                        <a href="{% url 'category_posts' post.category.slug %}" class="badge bg-primary me-2">{{ post.category.name }}</a>
+                                    {% else %}
+                                        <span class="badge bg-light text-dark me-2">No category</span>
+                                    {% endif %}
                                 </div>
+                                <div class="d-flex flex-wrap mb-2">
+                                    <!-- 태그 -->
+                                    {% if post.tags.all %}
+                                        {% for tag in post.tags.all %}
+                                            <a href="{% url 'tag_posts' tag.slug %}" class="badge bg-secondary text-light me-2">{{ tag.name }}</a>
+                                        {% endfor %}
+                                    {% else %}
+                                        <span class="badge bg-light text-dark me-2">No tags</span>
+                                    {% endif %}
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="{% if post.author.profile_picture %}{{ post.author.profile_picture.url }}{% else %}{% static 'images/default_profile_picture.png' %}{% endif %}" class="rounded-circle me-2" width="30" height="30" alt="{{ post.author }}">
+                                    <div>
+                                        <small class="text-muted">{{ post.author.nickname }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Views: {{ post.views }}</small>
+                                <small class="text-muted">{{ post.created_at|date:"Y.m.d" }}</small>
                             </div>
                         </div>
                     </div>
