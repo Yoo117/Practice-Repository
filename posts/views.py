@@ -13,6 +13,9 @@ class PostListView(ListView):
     context_object_name = 'posts'
     paginate_by = 4
 
+    def get_queryset(self):
+        return Post.objects.all().order_by('-created_at')  # 최신 게시글이 먼저 오도록 정렬
+
 class PostDetailView(DetailView):
     model = Post
     template_name = 'posts/post_detail.html'
@@ -37,19 +40,19 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     template_name = 'posts/post_form.html'
 
     def form_valid(self, form):
-        form.instance.author = self.request.user # 저자를 현재 유저로 설정
+        form.instance.author = self.request.user  # 저자를 현재 유저로 설정
         return super().form_valid(form)
 
     def get_success_url(self):
         return reverse_lazy('post_detail', kwargs={'pk': self.object.pk})
-    
+
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'posts/post_form.html'
 
     def test_func(self):
-        post = self.get_object() # 요청한 유저가 작성자 본인인지 확인
+        post = self.get_object()  # 요청한 유저가 작성자 본인인지 확인
         return self.request.user == post.author
 
     def get_success_url(self):
@@ -64,7 +67,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('post_list')
 
     def test_func(self):
-        post = self.get_object() # 요청한 유저가 작성자 본인인지 확인
+        post = self.get_object()  # 요청한 유저가 작성자 본인인지 확인
         return self.request.user == post.author
 
     def handle_no_permission(self):
@@ -78,14 +81,13 @@ class CategoryPostsView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         category_slug = self.kwargs.get('slug')
-        context['category'] = Category.objects.get(slug=category_slug) # context에 category 변수 추가
+        context['category'] = Category.objects.get(slug=category_slug)
         context['categories'] = Category.objects.all()
-
         return context
 
     def get_queryset(self):
         category_slug = self.kwargs.get('slug')
-        return Post.objects.filter(category__slug=category_slug)
+        return Post.objects.filter(category__slug=category_slug).order_by('-created_at')  # 최신 게시글이 먼저 오도록 정렬
 
 class TagPostsView(ListView):
     model = Post
@@ -95,14 +97,13 @@ class TagPostsView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         tag_slug = self.kwargs.get('slug')
-        context['tag'] = Tag.objects.get(slug=tag_slug) # context에 tag 변수 추가
+        context['tag'] = Tag.objects.get(slug=tag_slug)
         context['tags'] = Tag.objects.all()
-
         return context
 
     def get_queryset(self):
         tag_slug = self.kwargs.get('slug')
-        return Post.objects.filter(tags__slug=tag_slug)
+        return Post.objects.filter(tags__slug=tag_slug).order_by('-created_at')  # 최신 게시글이 먼저 오도록 정렬
 
 class SearchPostsView(ListView):
     model = Post
@@ -112,15 +113,13 @@ class SearchPostsView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         query = self.request.GET.get('q', '')
-
-        context['query'] = query # 검색을 사용자 쿼리로 입력받음
-        context['tags'] = Tag.objects.all() # Tag 검색 변수 추가
-        context['categories'] = Category.objects.all() # Category 검색 변수 추가
-        
+        context['query'] = query
+        context['tags'] = Tag.objects.all()
+        context['categories'] = Category.objects.all()
         return context
 
     def get_queryset(self):
         query = self.request.GET.get('q')
         if query:
-            return Post.objects.filter(title__icontains=query).order_by('-created_at')
-        return Post.objects.none()  # 검색어가 없으면 빈 쿼리셋 반환
+            return Post.objects.filter(title__icontains=query).order_by('-created_at')  # 최신 게시글이 먼저 오도록 정렬
+        return Post.objects.none()
