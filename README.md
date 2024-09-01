@@ -57,6 +57,7 @@
 
 ### 3.1 프로젝트 구조
 
+```bash
 project_root/
 ├── accounts/
 │   ├── __pycache__/
@@ -111,6 +112,7 @@ project_root/
 ├── manage.py
 ├── README.md
 └── requirements.txt
+```
 
 ### 3.2 개발 일정(WBS)
 ```mermaid
