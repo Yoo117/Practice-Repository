@@ -110,7 +110,6 @@ IDE/코드 편집기: VS Code
 | `profile/` | ProfileView | 유저 프로필 열람 |
 | `profile/edit/` | EditProfileView | 유저 프로필 수정 |
 | `password/change/` | ChangePasswordView| 유저 비밀번호 수정 |
-| ~~`notifications/`~~ | ~~NotificationsView~~ | ~~유저 알림(로그인 필요)~~ |
 
 - Posts App URLs
 
@@ -125,12 +124,6 @@ IDE/코드 편집기: VS Code
 | `category/<slug:category_slug>/` | CategoryPostsView | 카테고리별 게시글 리스트 |
 | `tag/<slug:tag_slug>/` | TagPostsView | 태그별 게시글 리스트 |
 | `search/` | SearchPostsView | 게시글 검색 |
-| ~~`post/<int:pk>/comment/`~~ | ~~AddCommentView~~ | ~~게시글 댓글(로그인 필요)~~ |
-| ~~`comment/<int:pk>/reply/`~~ | ~~AddReplyView~~ | ~~게시글 댓글의 대댓글(로그인 필요)~~ |
-| ~~`comment/<int:pk>/edit/`~~ | ~~EditCommentView~~ | ~~댓글 수정(로그인 필요, 본인 글만 가능)~~ |
-| ~~`comment/<int:pk>/delete/`~~ | ~~DeleteCommentView~~ | ~~댓글 삭제(로그인 필요, 본인 글만 가능)~~ |
-| ~~`post/<int:pk>/like/`~~ | ~~LikePostView~~ | ~~게시글 좋아요 기능~~ |
-| ~~`post/<int:pk>/bookmark/`~~ | ~~BookmarkPostView~~ | ~~북마크 기능(로그인 필요)~~ |
 
 ## 3. 프로젝트 구조와 개발 일정
 
